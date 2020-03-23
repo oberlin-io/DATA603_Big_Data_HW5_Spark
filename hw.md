@@ -100,12 +100,14 @@ import re
 import requests
 from pyspark import SparkContext as sc
 
-# Get this into RDD ...
-
 # Get page's HTML
 url = 'https://www.umbc.edu/'
 page = requests.get(url)
 html = page.text
+
+with open('umbc.html', 'w') as f: f.write(html)
+
+
 
 # Get all img elements
 img_pat = r'<img[^>]+>'
